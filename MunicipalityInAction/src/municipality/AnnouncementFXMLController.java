@@ -5,6 +5,7 @@
  */
 package municipality;
 
+import database.Announcements;
 import database.DbLinker;
 import database.Event;
 import java.io.IOException;
@@ -28,8 +29,7 @@ import javafx.stage.Stage;
  *
  * @author ThePs
  */
-public class EventFXMLController implements Initializable {
-
+public class AnnouncementFXMLController implements Initializable {
     @FXML
     Button submitButton;
     @FXML
@@ -42,28 +42,17 @@ public class EventFXMLController implements Initializable {
     TextField typeArea;
     @FXML
     TextArea descriptionArea;
+    @FXML
+    TextField reliabilityArea;
+    @FXML
+    TextField roadArea;
+    @FXML 
+    TextField postcodeArea;
 
     /*------ Database Connection -------*/
     DbLinker connectivity;
     /*------ Event details -------*/
-    Event saveEvent;
-
-    @FXML
-    public void sumbitEvent(ActionEvent event) {
-        saveEvent.setTitle(titleArea.getText().trim());
-        saveEvent.setEventLocation(locationArea.getText().trim());
-        saveEvent.setType(typeArea.getText().trim());
-        saveEvent.setDescription(descriptionArea.getText().trim());
-
-        try {
-            String query = "INSERT INTO events" + "(title,event_type,location,description)" + "VALUES('" + saveEvent.getTitle() + "','" + saveEvent.getType() + "','" + saveEvent.getEventLocation() + "','" + saveEvent.getDescription() + "')";
-            connectivity.getSt().executeUpdate(query);
-            System.out.println("successfull insert \n");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-
-        }
-    }
+    Announcements saveAnnouncement;
     
     @FXML
     public void goBack(ActionEvent event) throws IOException{
@@ -73,17 +62,34 @@ public class EventFXMLController implements Initializable {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+    
+    @FXML
+    public void sumbitAnnouncement(ActionEvent event) {
+        saveAnnouncement.setTitle(titleArea.getText().trim());
+        saveAnnouncement.setType(typeArea.getText().trim());
+        saveAnnouncement.setDescription(descriptionArea.getText().trim());
+        saveAnnouncement.setReliability(reliabilityArea.getText().trim());
+        saveAnnouncement.setRoad(roadArea.getText().trim());
+        saveAnnouncement.setPostcode(postcodeArea.getText().trim());
 
+        try {
+            String query = "INSERT INTO announcements" + "(title,reliability,an_type,description, road, postcode)" + "VALUES('" + saveAnnouncement.getTitle() + "','" + saveAnnouncement.getReliability() + "','" + saveAnnouncement.getType() + "','" + saveAnnouncement.getDescription() + "','" + saveAnnouncement.getRoad() + "','" + saveAnnouncement.getPostcode()+ "')";
+            connectivity.getSt().executeUpdate(query);
+            System.out.println("successfull insert \n");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+
+        }
+    }
     /**
      * Initializes the controller class.
-     *
      * @param url
      * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         connectivity = new DbLinker();
-        saveEvent = new Event();
-    }
-
+        saveAnnouncement = new Announcements();
+    }    
+    
 }

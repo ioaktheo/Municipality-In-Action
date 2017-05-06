@@ -79,7 +79,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="announcementButton" layoutX="10.0" layoutY="262.0" mnemonicParsing="false" onAction="#refreshList" prefHeight="84.0" prefWidth="149.0" text="New Announcement">
+            <Button fx:id="announcementButton" layoutX="10.0" layoutY="262.0" mnemonicParsing="false" onAction="#newAnnouncement" prefHeight="84.0" prefWidth="149.0" text="New Announcement">
                <font>
                   <Font size="14.0" />
                </font>

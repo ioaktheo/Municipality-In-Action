@@ -11,25 +11,25 @@ package database;
  */
 public class Announcements {
     int annoncements_id; //primar key
-    String name;
-    String criticalness;
+    String title;
+    String reliability;
     String type;
     String description;
-    String area;
+    String postcode;
     String road;
-    int postCode;
+
     Municipallity munincipality; 
 
     public int getAnnoncements_id() {
         return annoncements_id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public String getCriticalness() {
-        return criticalness;
+    public String getReliability() {
+        return reliability;
     }
 
     public String getType() {
@@ -40,21 +40,55 @@ public class Announcements {
         return description;
     }
 
-    public String getArea() {
-        return area;
+    public String getPostcode() {
+        return postcode;
     }
 
     public String getRoad() {
         return road;
     }
 
-    public int getPostCode() {
-        return postCode;
-    }
+
 
     public Municipallity getMunincipality() {
         return munincipality;
     }
+
+    public void setAnnoncements_id(int annoncements_id) {
+        this.annoncements_id = annoncements_id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setReliability(String reliability) {
+        this.reliability = reliability;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public void setRoad(String road) {
+        this.road = road;
+    }
+
+   
+
+    public void setMunincipality(Municipallity munincipality) {
+        this.munincipality = munincipality;
+    }
+    
+    
     
     
 

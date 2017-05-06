@@ -8,6 +8,7 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -22,11 +23,25 @@ public class DbLinker {
     public DbLinker() {
          try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://192.168.137.1:3306/example", "monty", "some_pass");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.137.1:3306/community", "monty", "some_pass");
             st = con.createStatement();
-        } catch (Exception ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Error: " + ex);
         }
+         
+         
+    }
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public Statement getSt() {
+        return st;
+    }
+
+    public ResultSet getRs() {
+        return rs;
     }
     
 }

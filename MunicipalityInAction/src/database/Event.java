@@ -11,7 +11,7 @@ package database;
  */
 public class Event {
     int event_id; //primary key
-    String name;
+    String title;
     String type;
     String eventLocation;
     String description;
@@ -21,8 +21,8 @@ public class Event {
         return event_id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public String getType() {
@@ -40,6 +40,32 @@ public class Event {
     public Municipallity getMunincipality() {
         return munincipality;
     }
+
+    public void setEvent_id(int event_id) {
+        this.event_id = event_id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setMunincipality(Municipallity munincipality) {
+        this.munincipality = munincipality;
+    }
+    
+    
     
     
     
