@@ -99,22 +99,22 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="textArea" editable="false" layoutY="275.0" prefHeight="224.0" prefWidth="416.0" visible="false" wrapText="true">
+            <TextArea fx:id="textArea" editable="false" layoutY="303.0" prefHeight="196.0" prefWidth="416.0" visible="false" wrapText="true">
                <font>
                   <Font size="32.0" />
                </font>
             </TextArea>
-            <Label fx:id="titleLabel" layoutX="14.0" layoutY="20.0" prefHeight="85.0" prefWidth="313.0" text="Title" visible="false">
+            <Label fx:id="titleLabel" layoutX="16.0" prefHeight="56.0" prefWidth="313.0" text="Title" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="roadLabel" layoutX="14.0" layoutY="86.0" prefHeight="91.0" prefWidth="317.0" text="Road" visible="false">
+            <Label fx:id="roadLabel" layoutX="16.0" layoutY="73.0" prefHeight="36.0" prefWidth="355.0" text="Road" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="streetLabel" layoutX="14.0" layoutY="154.0" prefHeight="90.0" prefWidth="316.0" text="Street Number" visible="false">
+            <Label fx:id="streetLabel" layoutX="15.0" layoutY="172.0" prefHeight="90.0" prefWidth="316.0" text="Street Number" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
@@ -122,6 +122,16 @@
             <Label fx:id="selectLabel" layoutX="52.0" layoutY="190.0" prefHeight="85.0" prefWidth="313.0" text="Select a Problem from the list">
                <font>
                   <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="275.0" text="Description" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="16.0" layoutY="136.0" prefHeight="36.0" prefWidth="355.0" text="Type" visible="false">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>

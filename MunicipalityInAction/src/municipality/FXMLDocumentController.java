@@ -56,6 +56,10 @@ public class FXMLDocumentController implements Initializable {
     Label selectLabel;
     @FXML
     Button exitButton;
+    @FXML
+    Label descriptionLabel;
+    @FXML
+    Label typeLabel;
 
     Problem problem = new Problem();
 
@@ -67,6 +71,8 @@ public class FXMLDocumentController implements Initializable {
     public void catchSelection(MouseEvent event) {
         if (!textArea.isVisible()) {
             textArea.setVisible(true);
+            typeLabel.setVisible(true);
+            descriptionLabel.setVisible(true);
             titleLabel.setVisible(true);
             roadLabel.setVisible(true);
             streetLabel.setVisible(true);
@@ -83,9 +89,10 @@ public class FXMLDocumentController implements Initializable {
 
             while (result.next()) {
                 textArea.setText(result.getString("description"));
-                titleLabel.setText(result.getString("title"));
-                roadLabel.setText(result.getString("road"));
-                streetLabel.setText(result.getString("street_number"));
+                titleLabel.setText("Title: " + result.getString("title"));
+                roadLabel.setText("Road: " + result.getString("road"));
+                streetLabel.setText("Street: "+result.getString("street_number"));
+                typeLabel.setText("Type: " + result.getString("problem_type"));
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -97,6 +104,8 @@ public class FXMLDocumentController implements Initializable {
         if (textArea.isVisible()) {
             textArea.setVisible(false);
             titleLabel.setVisible(false);
+            typeLabel.setVisible(false);
+            descriptionLabel.setVisible(false);
             roadLabel.setVisible(false);
             streetLabel.setVisible(false);
             selectLabel.setVisible(true);
