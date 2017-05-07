@@ -52,6 +52,10 @@ public class FXMLDocumentController implements Initializable {
     Label streetLabel;
     @FXML
     Button eventButton;
+    @FXML
+    Label selectLabel;
+    @FXML
+    Button exitButton;
 
     Problem problem = new Problem();
 
@@ -61,7 +65,16 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     public void catchSelection(MouseEvent event) {
+        if (!textArea.isVisible()) {
+            textArea.setVisible(true);
+            titleLabel.setVisible(true);
+            roadLabel.setVisible(true);
+            streetLabel.setVisible(true);
+            selectLabel.setVisible(false);
+        }
+
         textArea.clear();
+
         String currentItem = problems.getSelectionModel().getSelectedItem().toString();
 
         try {
@@ -81,7 +94,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     public void refreshList(ActionEvent event) throws IOException {
-
+        if (textArea.isVisible()) {
+            textArea.setVisible(false);
+            titleLabel.setVisible(false);
+            roadLabel.setVisible(false);
+            streetLabel.setVisible(false);
+            selectLabel.setVisible(true);
+        }
         problems.getItems().clear();
 
         try {
@@ -97,9 +116,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
     }
-    
-    
-    
+
     @FXML
     public void newEvent(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("EventFXML.fxml"));
@@ -108,7 +125,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-    
+
     @FXML
     public void newAnnouncement(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("AnnouncementFXML.fxml"));
@@ -117,7 +134,11 @@ public class FXMLDocumentController implements Initializable {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-
+    
+    @FXML
+    public void ExitApplication(ActionEvent event){
+        System.exit(0);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -142,7 +163,6 @@ public class FXMLDocumentController implements Initializable {
         }
 
         problems.setItems(items);
-        problems.getFocusModel().focus(0);
     }
 
 }

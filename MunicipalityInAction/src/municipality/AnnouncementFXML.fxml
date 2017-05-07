@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="municipality.AnnouncementFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="municipality.AnnouncementFXMLController">
    <children>
       <Label layoutX="17.0" text="Title">
          <font>
@@ -19,7 +21,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="262.0" layoutY="55.0" text="Road">
+      <Label layoutX="211.0" layoutY="55.0" text="Road">
          <font>
             <Font size="20.0" />
          </font>
@@ -29,23 +31,36 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="descriptionArea" layoutX="14.0" layoutY="201.0" prefHeight="182.0" prefWidth="433.0" />
-      <TextField fx:id="titleArea" layoutX="14.0" layoutY="30.0" />
-      <TextField fx:id="typeArea" layoutX="14.0" layoutY="85.0" />
-      <TextField fx:id="roadArea" layoutX="262.0" layoutY="85.0" />
-      <Button fx:id="submitButton" layoutX="491.0" layoutY="358.0" mnemonicParsing="false" onAction="#sumbitAnnouncement" text="Submit" />
-      <Button fx:id="backButton" layoutX="491.0" layoutY="318.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
-      <Label layoutX="262.0" text="Reliability">
+      <TextArea fx:id="descriptionArea" layoutX="14.0" layoutY="201.0" prefHeight="182.0" prefWidth="433.0" promptText="On the 15th of may Clifton Road will be closed due to maintance." />
+      <TextField fx:id="titleArea" layoutX="14.0" layoutY="30.0" promptText="Enter a title" />
+      <TextField fx:id="typeArea" layoutX="14.0" layoutY="85.0" promptText="Road closed" />
+      <TextField fx:id="roadArea" layoutX="211.0" layoutY="85.0" promptText="Clifton Road" />
+      <Label layoutX="211.0" layoutY="-1.0" text="Reliability">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="reliabilityArea" layoutX="262.0" layoutY="30.0" />
+      <TextField fx:id="reliabilityArea" layoutX="211.0" layoutY="30.0" promptText="Good to know" />
       <Label layoutX="17.0" layoutY="110.0" text="Postcode">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="postcodeArea" layoutX="14.0" layoutY="140.0" />
+      <TextField fx:id="postcodeArea" layoutX="14.0" layoutY="140.0" promptText="54636" />
+      <Button fx:id="submitButton" layoutX="23.0" layoutY="418.0" mnemonicParsing="false" onAction="#sumbitAnnouncement" text="Submit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="23.0" layoutY="474.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="91.0" text="&lt; Go back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="488.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sources/--loudspeaker-marketing-megaphone-icon--icon-search-engine-14.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

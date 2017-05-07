@@ -54,7 +54,8 @@ public class EventFXMLController implements Initializable {
         saveEvent.setEventLocation(locationArea.getText().trim());
         saveEvent.setType(typeArea.getText().trim());
         saveEvent.setDescription(descriptionArea.getText().trim());
-
+        
+        if (!"".equals(saveEvent.getTitle().trim())){
         try {
             String query = "INSERT INTO events" + "(title,event_type,location,description)" + "VALUES('" + saveEvent.getTitle() + "','" + saveEvent.getType() + "','" + saveEvent.getEventLocation() + "','" + saveEvent.getDescription() + "')";
             connectivity.getSt().executeUpdate(query);
@@ -62,6 +63,9 @@ public class EventFXMLController implements Initializable {
         } catch (SQLException ex) {
             System.out.println(ex);
 
+        }
+        }else{
+            titleArea.requestFocus();
         }
     }
     

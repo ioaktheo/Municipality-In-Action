@@ -71,14 +71,20 @@ public class AnnouncementFXMLController implements Initializable {
         saveAnnouncement.setReliability(reliabilityArea.getText().trim());
         saveAnnouncement.setRoad(roadArea.getText().trim());
         saveAnnouncement.setPostcode(postcodeArea.getText().trim());
-
-        try {
-            String query = "INSERT INTO announcements" + "(title,reliability,an_type,description, road, postcode)" + "VALUES('" + saveAnnouncement.getTitle() + "','" + saveAnnouncement.getReliability() + "','" + saveAnnouncement.getType() + "','" + saveAnnouncement.getDescription() + "','" + saveAnnouncement.getRoad() + "','" + saveAnnouncement.getPostcode()+ "')";
-            connectivity.getSt().executeUpdate(query);
-            System.out.println("successfull insert \n");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-
+        
+        if (!saveAnnouncement.getTitle().trim().equals("")) {
+        
+            try {
+                String query = "INSERT INTO announcements" + "(title,reliability,an_type,description, road, postcode)" + "VALUES('" + saveAnnouncement.getTitle() + "','" + saveAnnouncement.getReliability() + "','" + saveAnnouncement.getType() + "','" + saveAnnouncement.getDescription() + "','" + saveAnnouncement.getRoad() + "','" + saveAnnouncement.getPostcode()+ "')";
+                connectivity.getSt().executeUpdate(query);
+                System.out.println("successfull insert \n");
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+        }else{
+            titleArea.requestFocus();
+            
         }
     }
     /**
